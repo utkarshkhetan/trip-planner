@@ -5,10 +5,11 @@ import type { ItineraryItem } from '../../types';
 
 interface TimelineEventProps {
     event: ItineraryItem;
-    index: number;
-    isLast: boolean;
+    index?: number;
+    isLast?: boolean;
     onEdit?: (event: ItineraryItem) => void;
     onDelete?: (id: string) => void;
+    onToggleComplete?: (id: string, isCompleted: boolean) => void;
 }
 
 export const TimelineEvent: React.FC<TimelineEventProps> = ({

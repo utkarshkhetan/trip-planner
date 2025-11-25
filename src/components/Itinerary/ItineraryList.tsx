@@ -1,7 +1,8 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import type { ItineraryItem } from '../../types';
-import { ItineraryCard } from './ItineraryCard';
+import { TimelineEvent } from './TimelineEvent';
+import { ItineraryForm } from './ItineraryForm';
 
 interface ItineraryListProps {
     items: ItineraryItem[];
@@ -54,9 +55,9 @@ export const ItineraryList: React.FC<ItineraryListProps> = ({ items, onEdit, onD
                         <div className="space-y-3">
                             <AnimatePresence mode="popLayout">
                                 {dateItems.map((item) => (
-                                    <ItineraryCard
+                                    <TimelineEvent
                                         key={item.id}
-                                        item={item}
+                                        event={item}
                                         onEdit={onEdit}
                                         onDelete={onDelete}
                                         onToggleComplete={onToggleComplete}
