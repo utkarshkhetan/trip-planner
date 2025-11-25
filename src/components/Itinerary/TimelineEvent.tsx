@@ -60,7 +60,7 @@ export const TimelineEvent: React.FC<TimelineEventProps> = ({
             className="flex gap-4 relative group"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
+            transition={{ delay: (index || 0) * 0.1, duration: 0.5 }}
         >
             {/* Timeline Line */}
             {!isLast && (

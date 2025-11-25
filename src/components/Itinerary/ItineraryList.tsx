@@ -2,7 +2,6 @@ import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import type { ItineraryItem } from '../../types';
 import { TimelineEvent } from './TimelineEvent';
-import { ItineraryForm } from './ItineraryForm';
 
 interface ItineraryListProps {
     items: ItineraryItem[];
