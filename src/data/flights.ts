@@ -127,18 +127,6 @@ export const travelers: Traveler[] = [
         segments: [
             {
                 id: 'vashnav-1',
-                flightNumber: 'AA 4738',
-                flightIata: 'AA4738',
-                departureCity: 'BUF',
-                arrivalCity: 'LGA',
-                departureTime: '11:25 AM',
-                arrivalTime: '12:55 PM',
-                date: '2025-11-25',
-                status: 'On Time',
-                progress: 0
-            },
-            {
-                id: 'vashnav-2',
                 flightNumber: 'AA 4348',
                 flightIata: 'AA4348',
                 departureCity: 'LGA',
@@ -148,6 +136,18 @@ export const travelers: Traveler[] = [
                 date: '2025-11-25',
                 status: 'On Time',
                 progress: 0
+            },
+            {
+                id: 'vashnav-2',
+                flightNumber: 'AA 4348',
+                flightIata: 'AA4348',
+                departureCity: 'CLE',
+                arrivalCity: 'CLE',
+                departureTime: '5:29 PM',
+                arrivalTime: '5:29 PM',
+                date: '2025-11-25',
+                status: 'Landed',
+                progress: 100
             }
         ]
     },
@@ -157,18 +157,6 @@ export const travelers: Traveler[] = [
         segments: [
             {
                 id: 'himanshu-1',
-                flightNumber: 'AA 4738',
-                flightIata: 'AA4738',
-                departureCity: 'BUF',
-                arrivalCity: 'LGA',
-                departureTime: '11:25 AM',
-                arrivalTime: '12:55 PM',
-                date: '2025-11-25',
-                status: 'On Time',
-                progress: 0
-            },
-            {
-                id: 'himanshu-2',
                 flightNumber: 'AA 4348',
                 flightIata: 'AA4348',
                 departureCity: 'LGA',
@@ -178,6 +166,18 @@ export const travelers: Traveler[] = [
                 date: '2025-11-25',
                 status: 'On Time',
                 progress: 0
+            },
+            {
+                id: 'himanshu-2',
+                flightNumber: 'AA 4348',
+                flightIata: 'AA4348',
+                departureCity: 'CLE',
+                arrivalCity: 'CLE',
+                departureTime: '5:29 PM',
+                arrivalTime: '5:29 PM',
+                date: '2025-11-25',
+                status: 'Landed',
+                progress: 100
             }
         ]
     }
