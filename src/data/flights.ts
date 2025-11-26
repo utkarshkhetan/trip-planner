@@ -129,7 +129,7 @@ export const travelers: Traveler[] = [
                 id: 'vashnav-1',
                 flightNumber: 'AA 4348',
                 flightIata: 'AA4348',
-                departureCity: 'LGA',
+                departureCity: 'LGA', // NYC Departure
                 arrivalCity: 'CLE',
                 departureTime: '3:36 PM',
                 arrivalTime: '5:29 PM',
