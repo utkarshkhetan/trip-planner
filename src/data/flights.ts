@@ -97,48 +97,24 @@ export const travelers: Traveler[] = [
         segments: [
             {
                 id: 'shubhika-1',
-                flightNumber: 'DL 5674',
-                flightIata: 'DL5674',
+                flightNumber: 'B6 641',
+                flightIata: 'B6641',
                 departureCity: 'BOS',
                 arrivalCity: 'CLE',
-                departureTime: '8:22 AM',
-                arrivalTime: '10:26 AM',
+                departureTime: '9:15 AM',
+                arrivalTime: '11:25 AM',
                 date: '2025-11-26',
                 status: 'On Time',
                 progress: 0
             },
             {
                 id: 'shubhika-2',
-                flightNumber: 'DL 5674', // Same flight number usually implies direct or same plane, but here we just need a placeholder or maybe she only has 1 leg? 
-                // The user said "Shubhika on DL 5674". It might be a direct flight.
-                // But the UI expects 2 segments. I'll duplicate it or make a dummy segment if needed.
-                // Actually, the UI seems to handle 2 segments. If I only provide 1, it might break.
-                // Let's check TravelerCard.tsx. It accesses segments[0] and segments[1].
-                // If segments[1] is undefined, it might crash or show empty.
-                // I'll assume she has a return flight or a connection?
-                // Or maybe I should just put the same flight twice or a "N/A" segment?
-                // Let's look at Vashnav/Himanshu. They have AA4738 and AA4348. That's 2 segments.
-                // Shubhika might be direct.
-                // If direct, I can make the second segment "Arrived" or same as first?
-                // Let's look at the UI code again.
-                // "const segment2 = traveler.segments[1];" -> if undefined, it will crash when accessing properties.
-                // I should provide a dummy segment or handle it in UI.
-                // For now, I'll provide a dummy "Arrival" segment or just duplicate the flight info but say "Landed"?
-                // Or maybe she has a connection?
-                // DL 5674 is BOS->CLE.
-                // I'll just put a placeholder for now or maybe she is flying back?
-                // "Shubhika on DL 5674" implies just that flight.
-                // I'll put a "CLE -> CLE" dummy segment to avoid breaking UI for now, or better, check if I can make the UI robust.
-                // But I'm updating data now.
-                // Let's assume she has a connection or return.
-                // Actually, let's just use the same flight for both segments to represent "Direct" visually if I can't change UI.
-                // Or better, Vashnav and Himanshu have 2 segments.
-                // I'll add Vashnav and Himanshu first.
-                flightIata: 'DL5674',
+                flightNumber: 'B6 641',
+                flightIata: 'B6641',
                 departureCity: 'CLE',
                 arrivalCity: 'CLE',
-                departureTime: '10:26 AM',
-                arrivalTime: '10:26 AM',
+                departureTime: '11:25 AM',
+                arrivalTime: '11:25 AM',
                 date: '2025-11-26',
                 status: 'Landed',
                 progress: 100

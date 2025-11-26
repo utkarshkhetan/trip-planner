@@ -23,12 +23,20 @@ export const SharedPage: React.FC = () => {
                     delay={0}
                 />
                 <LinkSection
-                    title="Shared Photos"
-                    description="iCloud Shared Album"
+                    title="iCloud Photos"
+                    description="Shared Album"
                     link="https://www.icloud.com/sharedalbum/#B2A5ejO17JIfKN2"
                     icon={Image}
                     color="blue"
                     delay={0.2}
+                />
+                <LinkSection
+                    title="Google Photos"
+                    description="Shared Album"
+                    link="https://photos.app.goo.gl/Z2S8xrX7nJWLtsWe6"
+                    icon={Image}
+                    color="yellow"
+                    delay={0.4}
                 />
             </div>
         </motion.div>
