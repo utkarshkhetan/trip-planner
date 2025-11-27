@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Layout } from './components/Layout/Layout';
 import { FlightsPage } from './pages/FlightsPage';
@@ -59,16 +59,18 @@ function App() {
         {showSplash ? (
           <SplashScreen key="splash" onComplete={handleSplashComplete} />
         ) : (
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Navigate to="/flights" replace />} />
-              <Route path="flights" element={<FlightsPage />} />
-              <Route path="accommodation" element={<AccommodationPage />} />
-              <Route path="itinerary" element={<ItineraryPage />} />
-              <Route path="shared" element={<SharedPage />} />
-              <Route path="quotes" element={<QuotesPage />} />
-            </Route>
-          </Routes>
+          <motion.div key="app" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Navigate to="/flights" replace />} />
+                <Route path="flights" element={<FlightsPage />} />
+                <Route path="accommodation" element={<AccommodationPage />} />
+                <Route path="itinerary" element={<ItineraryPage />} />
+                <Route path="shared" element={<SharedPage />} />
+                <Route path="quotes" element={<QuotesPage />} />
+              </Route>
+            </Routes>
+          </motion.div>
         )}
       </AnimatePresence>
     </BrowserRouter>

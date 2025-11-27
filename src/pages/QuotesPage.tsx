@@ -68,7 +68,7 @@ export const QuotesPage: React.FC = () => {
             <div className="flex justify-between items-center mb-8 mt-4">
                 <div>
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        Trip Quotes
+                        Quotes List
                     </h1>
                     <p className="text-gray-400 text-sm mt-1">Memorable moments & sayings</p>
                 </div>
