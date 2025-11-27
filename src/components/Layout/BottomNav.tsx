@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Plane, Home, Calendar, Share2 } from 'lucide-react';
+import { Plane, Home, Calendar, Share2, MessageSquareQuote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
@@ -9,6 +9,7 @@ export const BottomNav: React.FC = () => {
         { icon: Plane, label: 'Flights', path: '/flights' },
         { icon: Home, label: 'Stay', path: '/accommodation' },
         { icon: Calendar, label: 'Itinerary', path: '/itinerary' },
+        { icon: MessageSquareQuote, label: 'Quotes', path: '/quotes' },
         { icon: Share2, label: 'Shared', path: '/shared' },
     ];
 

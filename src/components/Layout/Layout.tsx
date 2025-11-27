@@ -15,7 +15,7 @@ export const Layout: React.FC = () => {
             </div>
 
             <div className="relative z-10 max-w-md mx-auto min-h-screen bg-black/20 shadow-2xl border-x border-white/5">
-                <AnimatePresence mode="popLayout">
+                <AnimatePresence mode="wait">
                     <Outlet key={location.pathname} />
                 </AnimatePresence>
             </div>

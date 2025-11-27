@@ -58,3 +58,11 @@ export interface ItineraryItem {
     updatedAt: number; // timestamp
 }
 
+export interface Quote {
+    id?: string;
+    text: string;
+    author: string;
+    createdAt: number;
+    createdBy?: string;
+}
+
