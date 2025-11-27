@@ -8,7 +8,7 @@ export interface SimulatedFlightStatus {
     timeToArrival: number; // minutes
 }
 
-export const useSimulatedFlight = (segment: FlightSegment) => {
+export const useSimulatedFlight = (segment?: FlightSegment) => {
     const [status, setStatus] = useState<SimulatedFlightStatus>({
         status: 'Not Boarded',
         progress: 0,
@@ -17,6 +17,8 @@ export const useSimulatedFlight = (segment: FlightSegment) => {
     });
 
     useEffect(() => {
+        if (!segment) return;
+
         const calculateStatus = () => {
             const now = new Date();
 

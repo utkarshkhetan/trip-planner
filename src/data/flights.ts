@@ -106,18 +106,6 @@ export const travelers: Traveler[] = [
                 date: '2025-11-26',
                 status: 'On Time',
                 progress: 0
-            },
-            {
-                id: 'shubhika-2',
-                flightNumber: 'B6 641',
-                flightIata: 'B6641',
-                departureCity: 'CLE',
-                arrivalCity: 'CLE',
-                departureTime: '11:25 AM',
-                arrivalTime: '11:25 AM',
-                date: '2025-11-26',
-                status: 'Landed',
-                progress: 100
             }
         ]
     },
@@ -136,18 +124,6 @@ export const travelers: Traveler[] = [
                 date: '2025-11-25',
                 status: 'On Time',
                 progress: 0
-            },
-            {
-                id: 'vashnav-2',
-                flightNumber: 'AA 4348',
-                flightIata: 'AA4348',
-                departureCity: 'CLE',
-                arrivalCity: 'CLE',
-                departureTime: '5:29 PM',
-                arrivalTime: '5:29 PM',
-                date: '2025-11-25',
-                status: 'Landed',
-                progress: 100
             }
         ]
     },
@@ -166,18 +142,6 @@ export const travelers: Traveler[] = [
                 date: '2025-11-25',
                 status: 'On Time',
                 progress: 0
-            },
-            {
-                id: 'himanshu-2',
-                flightNumber: 'AA 4348',
-                flightIata: 'AA4348',
-                departureCity: 'CLE',
-                arrivalCity: 'CLE',
-                departureTime: '5:29 PM',
-                arrivalTime: '5:29 PM',
-                date: '2025-11-25',
-                status: 'Landed',
-                progress: 100
             }
         ]
     }

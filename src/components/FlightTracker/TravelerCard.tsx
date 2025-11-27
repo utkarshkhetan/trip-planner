@@ -16,7 +16,14 @@ export const TravelerCard: React.FC<{ traveler: Traveler }> = ({ traveler }) => 
 
     // Calculate total progress (0-100 across both legs)
     // Leg 1: 0-45%, Layover: 45-55%, Leg 2: 55-100%
+    // Calculate total progress (0-100 across both legs)
     const getTotalProgress = () => {
+        if (!segment2) {
+            if (sim1.status === 'Landed') return 100;
+            if (sim1.status === 'In Air') return sim1.progress;
+            return 0;
+        }
+
         let total = 0;
 
         // Leg 1 contribution (0-45)
@@ -51,6 +58,12 @@ export const TravelerCard: React.FC<{ traveler: Traveler }> = ({ traveler }) => 
 
     // Determine overall traveler status
     const getOverallStatus = () => {
+        if (!segment2) {
+            if (sim1.status === 'Landed') return 'Arrived';
+            if (sim1.status === 'In Air') return 'In Air';
+            return sim1.status;
+        }
+
         if (sim1.status === 'In Air') return 'Leg 1: In Air';
         if (sim2.status === 'In Air') return 'Leg 2: In Air';
         if (sim1.status === 'Landed' && sim2.status === 'Not Boarded') return 'Layover';
@@ -115,8 +128,12 @@ export const TravelerCard: React.FC<{ traveler: Traveler }> = ({ traveler }) => 
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
                         <span className={cn("font-medium", isArrived ? "text-green-200/70" : "text-white/80")}>{segment1.flightNumber}</span>
-                        <span className={cn("w-1 h-1 rounded-full", isArrived ? "bg-green-500/50" : "bg-gray-600")} />
-                        <span className={cn("font-medium", isArrived ? "text-green-200/70" : "text-white/80")}>{segment2.flightNumber}</span>
+                        {segment2 && (
+                            <>
+                                <span className={cn("w-1 h-1 rounded-full", isArrived ? "bg-green-500/50" : "bg-gray-600")} />
+                                <span className={cn("font-medium", isArrived ? "text-green-200/70" : "text-white/80")}>{segment2.flightNumber}</span>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div className={cn(
@@ -167,24 +184,30 @@ export const TravelerCard: React.FC<{ traveler: Traveler }> = ({ traveler }) => 
                             </motion.div>
 
                             {/* Layover marker */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2">
-                                <div className={cn("w-2 h-2 rounded-full border-2 transition-colors duration-300",
-                                    (sim1.status === 'Landed' || isArrived) ? "bg-green-500 border-green-600" : "bg-gray-700 border-gray-900"
-                                )} />
-                                <div className={cn(
-                                    "text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded backdrop-blur-sm transition-colors duration-300",
-                                    (sim1.status === 'Landed' || isArrived) ? "text-green-300 bg-green-900/40" : "text-gray-500 bg-gray-900/80"
-                                )}>
-                                    {segment1.arrivalCity}
+                            {segment2 && (
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2">
+                                    <div className={cn("w-2 h-2 rounded-full border-2 transition-colors duration-300",
+                                        (sim1.status === 'Landed' || isArrived) ? "bg-green-500 border-green-600" : "bg-gray-700 border-gray-900"
+                                    )} />
+                                    <div className={cn(
+                                        "text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded backdrop-blur-sm transition-colors duration-300",
+                                        (sim1.status === 'Landed' || isArrived) ? "text-green-300 bg-green-900/40" : "text-gray-500 bg-gray-900/80"
+                                    )}>
+                                        {segment1.arrivalCity}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
 
                     {/* Destination */}
                     <div className="text-center flex-shrink-0 w-12">
-                        <div className={cn("text-xl font-bold", isArrived ? "text-green-100" : "text-white")}>{segment2.arrivalCity}</div>
-                        <div className={cn("text-[10px]", isArrived ? "text-green-200/60" : "text-gray-400")}>{segment2.arrivalTime}</div>
+                        <div className={cn("text-xl font-bold", isArrived ? "text-green-100" : "text-white")}>
+                            {segment2 ? segment2.arrivalCity : segment1.arrivalCity}
+                        </div>
+                        <div className={cn("text-[10px]", isArrived ? "text-green-200/60" : "text-gray-400")}>
+                            {segment2 ? segment2.arrivalTime : segment1.arrivalTime}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -193,11 +216,13 @@ export const TravelerCard: React.FC<{ traveler: Traveler }> = ({ traveler }) => 
             <div className="flex items-center justify-between gap-3 relative z-10">
                 <div className="flex gap-2">
                     <div className={cn("flex items-center justify-between px-2.5 py-1.5 rounded-lg border transition-colors duration-300", getStatusColor(sim1.status))}>
-                        <span className="text-[10px] font-bold">Leg 1: {sim1.status}</span>
+                        <span className="text-[10px] font-bold">{segment2 ? `Leg 1: ${sim1.status}` : sim1.status}</span>
                     </div>
-                    <div className={cn("flex items-center justify-between px-2.5 py-1.5 rounded-lg border transition-colors duration-300", getStatusColor(sim2.status))}>
-                        <span className="text-[10px] font-bold">Leg 2: {sim2.status}</span>
-                    </div>
+                    {segment2 && (
+                        <div className={cn("flex items-center justify-between px-2.5 py-1.5 rounded-lg border transition-colors duration-300", getStatusColor(sim2.status))}>
+                            <span className="text-[10px] font-bold">Leg 2: {sim2.status}</span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Integrated Total Time */}
