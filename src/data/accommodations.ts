@@ -19,7 +19,7 @@ export const accommodations: Accommodation[] = [
         id: '3',
         city: 'Buffalo',
         imageUrl: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=800&q=80',
-        airbnbLink: '',
+        airbnbLink: 'https://www.airbnb.com/l/rAidl36n?s=67&unique_share_id=bdd9a268-8f81-4cf1-9d1c-1a49cda4fde0',
         dates: 'Dec 1 - Dec 2'
     }
 ];
