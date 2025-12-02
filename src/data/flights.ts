@@ -1,6 +1,6 @@
 import type { Traveler } from '../types';
 
-export const travelers: Traveler[] = [
+export const arrivalFlights: Traveler[] = [
     {
         id: '1',
         name: 'Utkarsh',
@@ -140,6 +140,129 @@ export const travelers: Traveler[] = [
                 departureTime: '3:36 PM',
                 arrivalTime: '5:29 PM',
                 date: '2025-11-25',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    }
+];
+
+export const departureFlights: Traveler[] = [
+    {
+        id: 'd1',
+        name: 'Shubhika',
+        segments: [
+            {
+                id: 'shubhika-dep',
+                flightNumber: 'B6 716',
+                flightIata: 'B6716',
+                departureCity: 'BUF',
+                arrivalCity: 'BOS',
+                departureTime: '11:48 AM',
+                arrivalTime: '1:12 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    },
+    {
+        id: 'd2',
+        name: 'Vashnav',
+        segments: [
+            {
+                id: 'vashnav-dep',
+                flightNumber: 'B6 206',
+                flightIata: 'B6206',
+                departureCity: 'BUF',
+                arrivalCity: 'LGA',
+                departureTime: '11:20 AM',
+                arrivalTime: '12:45 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    },
+    {
+        id: 'd3',
+        name: 'Himanshu',
+        segments: [
+            {
+                id: 'himanshu-dep',
+                flightNumber: 'B6 206',
+                flightIata: 'B6206',
+                departureCity: 'BUF',
+                arrivalCity: 'LGA',
+                departureTime: '11:20 AM',
+                arrivalTime: '12:45 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    },
+    {
+        id: 'd4',
+        name: 'Adarsh',
+        segments: [
+            {
+                id: 'adarsh-dep',
+                flightNumber: 'B6 2901',
+                flightIata: 'B62901',
+                departureCity: 'BUF',
+                arrivalCity: 'JFK',
+                departureTime: '12:18 PM',
+                arrivalTime: '1:43 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    },
+    {
+        id: 'd5',
+        name: 'Utkarsh',
+        segments: [
+            {
+                id: 'utkarsh-dep',
+                flightNumber: 'B6 2901',
+                flightIata: 'B62901',
+                departureCity: 'BUF',
+                arrivalCity: 'JFK',
+                departureTime: '12:18 PM',
+                arrivalTime: '1:43 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            }
+        ]
+    },
+    {
+        id: 'd6',
+        name: 'Anvita',
+        segments: [
+            {
+                id: 'anvita-dep-1',
+                flightNumber: 'AA 1545',
+                flightIata: 'AA1545',
+                departureCity: 'BUF',
+                arrivalCity: 'CLT',
+                departureTime: '12:22 PM',
+                arrivalTime: '2:25 PM',
+                date: '2025-12-02',
+                status: 'On Time',
+                progress: 0
+            },
+            {
+                id: 'anvita-dep-2',
+                flightNumber: 'AA 2824',
+                flightIata: 'AA2824',
+                departureCity: 'CLT',
+                arrivalCity: 'AUS',
+                departureTime: '4:30 PM',
+                arrivalTime: '6:45 PM',
+                date: '2025-12-02',
                 status: 'On Time',
                 progress: 0
             }

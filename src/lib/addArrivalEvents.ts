@@ -6,10 +6,10 @@
  * 2. Call addArrivalEvents()
  */
 
-import { collection, writeBatch, doc } from 'firebase/firestore';
+import { collection, writeBatch, doc, query, where, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 import type { ItineraryItem } from '../types';
-import { travelers } from '../data/flights';
+import { arrivalFlights } from '../data/flights';
 
 const ITINERARY_COLLECTION = 'itinerary';
 
@@ -31,13 +31,22 @@ const convertTo24Hour = (timeStr: string) => {
 
 export const addArrivalEvents = async (): Promise<void> => {
     try {
+        // Check if we've already added arrival events
+        const q = query(collection(db, ITINERARY_COLLECTION), where('type', '==', 'flight'));
+        const snapshot = await getDocs(q);
+
+        if (!snapshot.empty) {
+            console.log('Arrival events already exist, skipping...');
+            return;
+        }
+
         console.log('Adding arrival events...');
 
         const batch = writeBatch(db);
         const now = Date.now();
 
         // Generate arrival events from flight data
-        const arrivalEvents: Omit<ItineraryItem, 'id' | 'createdAt' | 'updatedAt'>[] = travelers.map(traveler => {
+        const arrivalEvents: Omit<ItineraryItem, 'id' | 'createdAt' | 'updatedAt'>[] = arrivalFlights.map(traveler => {
             const lastSegment = traveler.segments[traveler.segments.length - 1];
             // Convert 2025 dates to 2024 to match itinerary
             const date2024 = lastSegment.date.replace('2025', '2024');
@@ -47,7 +56,8 @@ export const addArrivalEvents = async (): Promise<void> => {
                 time: convertTo24Hour(lastSegment.arrivalTime),
                 description: `Flight ${lastSegment.flightNumber} from ${lastSegment.departureCity}`,
                 icon: '🛬',
-                isCompleted: false
+                isCompleted: false,
+                type: 'flight'
             };
         });
 
