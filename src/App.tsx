@@ -5,7 +5,7 @@ import { Layout } from './components/Layout/Layout';
 import { FlightsPage } from './pages/FlightsPage';
 import { AccommodationPage } from './pages/AccommodationPage';
 import { ItineraryPage } from './pages/ItineraryPage';
-import { SharedPage } from './pages/SharedPage';
+import { ExpensesPage } from './pages/ExpensesPage';
 import { QuotesPage } from './pages/QuotesPage';
 import { SplashScreen } from './components/SplashScreen';
 import { useNotificationPermission } from './hooks/useNotificationPermission';
@@ -66,7 +66,7 @@ function App() {
                 <Route path="flights" element={<FlightsPage />} />
                 <Route path="accommodation" element={<AccommodationPage />} />
                 <Route path="itinerary" element={<ItineraryPage />} />
-                <Route path="shared" element={<SharedPage />} />
+                <Route path="expenses" element={<ExpensesPage />} />
                 <Route path="quotes" element={<QuotesPage />} />
               </Route>
             </Routes>

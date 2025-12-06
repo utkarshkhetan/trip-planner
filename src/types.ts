@@ -66,3 +66,27 @@ export interface Quote {
     createdBy?: string;
 }
 
+export interface Expense {
+    id?: string;
+    description: string;
+    amount: number;
+    paidBy: string; // User ID or Name
+    splitBetween: string[]; // List of User IDs or Names involved
+    date: number; // timestamp
+    createdAt: number;
+    createdBy?: string;
+    type: 'expense' | 'settlement';
+    // For settlements: paidBy = payer, splitBetween = [payee]
+}
+
+export interface Balance {
+    user: string;
+    amount: number; // Positive = owed money, Negative = owes money
+}
+
+export interface Settlement {
+    from: string;
+    to: string;
+    amount: number;
+}
+
