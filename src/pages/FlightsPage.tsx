@@ -9,7 +9,7 @@ export const FlightsPage: React.FC = () => {
 
     return (
         <motion.div
-            className="pb-24 pt-6 px-4"
+            className="pt-6 px-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}

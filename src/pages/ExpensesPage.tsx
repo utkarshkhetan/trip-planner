@@ -14,7 +14,7 @@ export const ExpensesPage: React.FC = () => {
 
     return (
         <motion.div
-            className="pb-24 pt-6 px-4"
+            className="pt-6 px-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
@@ -76,7 +76,7 @@ export const ExpensesPage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsAddModalOpen(true)}
-                className="fixed bottom-24 right-6 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/25 z-40"
+                className="fixed bottom-32 right-6 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/25 z-40"
             >
                 <Plus size={28} className="text-white" />
             </motion.button>

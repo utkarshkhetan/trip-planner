@@ -58,7 +58,7 @@ export const QuotesPage: React.FC = () => {
 
     return (
         <motion.div
-            className="pb-24 pt-6 px-4 max-w-md mx-auto"
+            className="pt-6 px-4 max-w-md mx-auto"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}

@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[100px]" />
             </div>
 
-            <div className="relative z-10 max-w-md mx-auto min-h-screen bg-black/20 shadow-2xl border-x border-white/5">
+            <div className="relative z-10 max-w-md mx-auto min-h-screen bg-black/20 shadow-2xl border-x border-white/5 pb-32">
                 <AnimatePresence mode="wait">
                     <Outlet key={location.pathname} />
                 </AnimatePresence>
